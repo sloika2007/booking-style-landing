@@ -13,7 +13,7 @@ function readConfig($path) {
             'windowsClipboardText' => '',
             'macCopies' => 0,
             'windowsCopies' => 0,
-            'adminPassword' => 'admin123'
+            'adminPassword' => 'Dulma5221'
         ];
         if (!is_dir(dirname($path))) {
             mkdir(dirname($path), 0755, true);

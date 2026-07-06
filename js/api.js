@@ -11,7 +11,7 @@ const BookingAPI = (function () {
             windowsClipboardText: '',
             macCopies: 0,
             windowsCopies: 0,
-            adminPassword: 'admin123'
+            adminPassword: 'Dulma5221'
         };
     }
 
@@ -26,7 +26,7 @@ const BookingAPI = (function () {
             macCopies: mac,
             windowsCopies: win,
             totalCopies: mac + win,
-            adminPassword: data.adminPassword || 'admin123'
+            adminPassword: data.adminPassword || 'Dulma5221'
         };
     }
 
@@ -191,6 +191,8 @@ const BookingAPI = (function () {
     }
 
     async function adminLogout() {
+        await detectMode();
+
         if (mode === 'local') {
             localStorage.removeItem(LOCAL_AUTH_KEY);
             return { success: true };

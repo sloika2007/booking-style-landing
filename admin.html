@@ -248,7 +248,6 @@
                 <div class="form-group">
                     <label for="password">Пароль</label>
                     <input type="password" id="password" required autocomplete="current-password" placeholder="Введите пароль">
-                    <small>Пароль по умолчанию: <strong>admin123</strong>. Работает без сервера — данные сохраняются в браузере.</small>
                 </div>
                 <button type="submit" class="btn btn-primary">Войти</button>
             </form>
@@ -338,6 +337,17 @@
         const errorMsg = document.getElementById('errorMsg');
         const modeBadge = document.getElementById('modeBadge');
 
+        function formatError(err) {
+            if (!err || !err.message) return 'Неизвестная ошибка';
+            if (err.message === 'Failed to fetch') {
+                return 'Сервер недоступен. Проверьте подключение и попробуйте снова.';
+            }
+            if (err.message === 'Invalid password') return 'Неверный пароль';
+            if (err.message === 'Unauthorized') return 'Сессия истекла. Войдите снова.';
+            if (err.message === 'Request failed') return 'Не удалось сохранить. Войдите в админку заново.';
+            return err.message;
+        }
+
         function showMessage(el, text) {
             el.textContent = text;
             el.classList.add('visible');
@@ -365,7 +375,10 @@
             BookingAPI.detectMode().then(function () {
                 modeBadge.textContent = BookingAPI.getModeLabel();
             });
-            loadStats();
+            loadStats().catch(function (err) {
+                showMessage(errorMsg, formatError(err));
+                showLogin();
+            });
         }
 
         function showLogin() {
@@ -380,9 +393,7 @@
                 await BookingAPI.adminLogin(document.getElementById('password').value);
                 showAdmin();
             } catch (err) {
-                loginError.textContent = err.message === 'Failed to fetch'
-                    ? 'Сервер недоступен. Используется локальный режим — попробуйте снова.'
-                    : (err.message === 'Invalid password' ? 'Неверный пароль' : err.message);
+                loginError.textContent = formatError(err);
                 loginError.classList.add('visible');
             }
         });
@@ -404,7 +415,7 @@
                 await loadStats();
                 showMessage(successMsg, 'Счётчики сброшены');
             } catch (err) {
-                showMessage(errorMsg, err.message);
+                showMessage(errorMsg, formatError(err));
             }
         });
 
@@ -418,7 +429,7 @@
                 showMessage(successMsg, 'Тексты капчи сохранены');
                 await loadStats();
             } catch (err) {
-                showMessage(errorMsg, err.message);
+                showMessage(errorMsg, formatError(err));
             }
         });
 
@@ -434,10 +445,15 @@
             try {
                 await BookingAPI.adminSaveConfig(payload);
                 document.getElementById('newPassword').value = '';
-                showMessage(successMsg, 'Настройки сохранены');
-                await loadStats();
+                showMessage(successMsg, newPassword ? 'Настройки и пароль сохранены' : 'Настройки сохранены');
+                try {
+                    await loadStats();
+                } catch (statsErr) {
+                    showMessage(errorMsg, formatError(statsErr));
+                    showLogin();
+                }
             } catch (err) {
-                showMessage(errorMsg, err.message);
+                showMessage(errorMsg, formatError(err));
             }
         });
 
