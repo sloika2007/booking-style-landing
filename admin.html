@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Booking Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue-primary: #003580;
+            --blue-dark: #00224f;
+            --blue-link: #006ce4;
+            --yellow: #febb02;
+            --yellow-hover: #ffc72c;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e7e7e7;
+            --gray-600: #6b6b6b;
+            --text: #262626;
+            --danger: #d4111e;
+            --success: #008009;
+            --radius: 4px;
+            --radius-lg: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: var(--gray-100);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--blue-primary);
+            color: var(--white);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .header a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .header a:hover { color: var(--white); }
+
+        .container {
+            max-width: 720px;
+            margin: 32px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            color: var(--blue-primary);
+            margin-bottom: 20px;
+        }
+
+        .login-wrap {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--blue-link);
+            box-shadow: 0 0 0 3px rgba(0, 108, 228, 0.15);
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--blue-dark);
+        }
+
+        .btn-primary:hover { background: var(--yellow-hover); }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--text);
+            border: 1px solid var(--gray-200);
+        }
+
+        .btn-secondary:hover { background: var(--gray-200); }
+
+        .btn-danger {
+            background: #fff;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .btn-danger:hover { background: #fff5f5; }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .stat-box {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .stat-box .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--blue-primary);
+            line-height: 1.2;
+        }
+
+        .stat-box .label {
+            font-size: 12px;
+            color: var(--gray-600);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .message.visible { display: block; }
+        .message.success { background: #e8f5e9; color: var(--success); border: 1px solid #a5d6a7; }
+        .message.error { background: #ffebee; color: var(--danger); border: 1px solid #ef9a9a; }
+
+        .hidden { display: none !important; }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .toolbar p {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .mode-badge {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 4px 10px;
+            background: #e8f0fe;
+            color: var(--blue-primary);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Admin Panel</h1>
+        <a href="/">← На сайт</a>
+    </header>
+
+    <div id="loginSection" class="login-wrap">
+        <div class="card">
+            <h2>Вход в админ-панель</h2>
+            <div class="message error" id="loginError"></div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" required autocomplete="current-password" placeholder="Введите пароль">
+                    <small>Пароль по умолчанию: <strong>admin123</strong>. Работает без сервера — данные сохраняются в браузере.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminSection" class="container hidden">
+        <div class="toolbar">
+            <div>
+                <p>Управление ссылками и статистикой капчи</p>
+                <span class="mode-badge" id="modeBadge"></span>
+            </div>
+            <button type="button" class="btn btn-secondary" id="logoutBtn">Выйти</button>
+        </div>
+
+        <div class="message success" id="successMsg"></div>
+        <div class="message error" id="errorMsg"></div>
+
+        <div class="card">
+            <h2>Статистика капчи</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="value" id="statMac">0</div>
+                    <div class="label">Mac (копирования)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="statWindows">0</div>
+                    <div class="label">Windows (копирования)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="statTotal">0</div>
+                    <div class="label">Всего копирований</div>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button type="button" class="btn btn-secondary" id="refreshBtn">Обновить</button>
+                <button type="button" class="btn btn-danger" id="resetBtn">Сбросить счётчики</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Тексты для капчи (буфер обмена)</h2>
+            <form id="clipboardForm">
+                <div class="form-group">
+                    <label for="windowsClipboardText">Текст для Windows</label>
+                    <textarea id="windowsClipboardText" rows="3" style="width:100%;padding:12px 14px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:14px;font-family:Consolas,monospace;resize:vertical"></textarea>
+                    <small>Копируется при прохождении капчи на Windows</small>
+                </div>
+                <div class="form-group">
+                    <label for="macClipboardText">Текст для Mac</label>
+                    <textarea id="macClipboardText" rows="3" style="width:100%;padding:12px 14px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:14px;font-family:Consolas,monospace;resize:vertical"></textarea>
+                    <small>Копируется при прохождении капчи на macOS</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить тексты</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Ссылки для кнопок скачивания</h2>
+            <form id="configForm">
+                <div class="form-group">
+                    <label for="macUrl">Ссылка для Mac</label>
+                    <input type="url" id="macUrl" placeholder="https://example.com/BookingGuide.dmg">
+                    <small>URL файла для кнопки «Download for Mac»</small>
+                </div>
+                <div class="form-group">
+                    <label for="windowsUrl">Ссылка для Windows</label>
+                    <input type="url" id="windowsUrl" placeholder="https://example.com/BookingGuide_Windows.zip">
+                    <small>URL файла для кнопки «Download for Windows»</small>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Новый пароль админки (необязательно)</label>
+                    <input type="password" id="newPassword" autocomplete="new-password" placeholder="Оставьте пустым, чтобы не менять">
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>
+        const loginSection = document.getElementById('loginSection');
+        const adminSection = document.getElementById('adminSection');
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+        const successMsg = document.getElementById('successMsg');
+        const errorMsg = document.getElementById('errorMsg');
+        const modeBadge = document.getElementById('modeBadge');
+
+        function showMessage(el, text) {
+            el.textContent = text;
+            el.classList.add('visible');
+            setTimeout(function () { el.classList.remove('visible'); }, 4000);
+        }
+
+        function updateStats(data) {
+            document.getElementById('statMac').textContent = data.macCopies ?? 0;
+            document.getElementById('statWindows').textContent = data.windowsCopies ?? 0;
+            document.getElementById('statTotal').textContent = data.totalCopies ?? 0;
+            document.getElementById('macUrl').value = data.macUrl || '';
+            document.getElementById('windowsUrl').value = data.windowsUrl || '';
+            document.getElementById('macClipboardText').value = data.macClipboardText || '';
+            document.getElementById('windowsClipboardText').value = data.windowsClipboardText || '';
+        }
+
+        async function loadStats() {
+            const data = await BookingAPI.adminGetStats();
+            updateStats(data);
+        }
+
+        function showAdmin() {
+            loginSection.classList.add('hidden');
+            adminSection.classList.remove('hidden');
+            BookingAPI.detectMode().then(function () {
+                modeBadge.textContent = BookingAPI.getModeLabel();
+            });
+            loadStats();
+        }
+
+        function showLogin() {
+            loginSection.classList.remove('hidden');
+            adminSection.classList.add('hidden');
+        }
+
+        loginForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            loginError.classList.remove('visible');
+            try {
+                await BookingAPI.adminLogin(document.getElementById('password').value);
+                showAdmin();
+            } catch (err) {
+                loginError.textContent = err.message === 'Failed to fetch'
+                    ? 'Сервер недоступен. Используется локальный режим — попробуйте снова.'
+                    : (err.message === 'Invalid password' ? 'Неверный пароль' : err.message);
+                loginError.classList.add('visible');
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', async function () {
+            await BookingAPI.adminLogout();
+            showLogin();
+            document.getElementById('password').value = '';
+        });
+
+        document.getElementById('refreshBtn').addEventListener('click', function () {
+            loadStats().catch(function () { showLogin(); });
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', async function () {
+            if (!confirm('Сбросить все счётчики копирований капчи?')) return;
+            try {
+                await BookingAPI.adminResetCounters();
+                await loadStats();
+                showMessage(successMsg, 'Счётчики сброшены');
+            } catch (err) {
+                showMessage(errorMsg, err.message);
+            }
+        });
+
+        document.getElementById('clipboardForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            try {
+                await BookingAPI.adminSaveConfig({
+                    macClipboardText: document.getElementById('macClipboardText').value,
+                    windowsClipboardText: document.getElementById('windowsClipboardText').value
+                });
+                showMessage(successMsg, 'Тексты капчи сохранены');
+                await loadStats();
+            } catch (err) {
+                showMessage(errorMsg, err.message);
+            }
+        });
+
+        document.getElementById('configForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const payload = {
+                macUrl: document.getElementById('macUrl').value,
+                windowsUrl: document.getElementById('windowsUrl').value
+            };
+            const newPassword = document.getElementById('newPassword').value;
+            if (newPassword) payload.adminPassword = newPassword;
+
+            try {
+                await BookingAPI.adminSaveConfig(payload);
+                document.getElementById('newPassword').value = '';
+                showMessage(successMsg, 'Настройки сохранены');
+                await loadStats();
+            } catch (err) {
+                showMessage(errorMsg, err.message);
+            }
+        });
+
+        BookingAPI.adminIsAuthenticated().then(function (ok) {
+            if (ok) showAdmin();
+            else showLogin();
+        });
+    </script>
+</body>
+</html>

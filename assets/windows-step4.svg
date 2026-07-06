@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#0078d4"/>
+  <rect x="60" y="40" width="520" height="280" rx="4" fill="white" stroke="#ccc"/>
+  <rect x="60" y="40" width="520" height="28" fill="#f0f0f0" stroke="#ccc"/>
+  <text x="76" y="58" fill="#333" font-family="Inter,sans-serif" font-size="11">=� BookingGuide  File Explorer</text>
+  <rect x="76" y="84" width="80" height="72" rx="2" fill="#e8f4fd" stroke="#0078d4" stroke-width="2"/>
+  <rect x="92" y="96" width="48" height="40" rx="4" fill="#003580"/>
+  <text x="86" y="152" fill="#333" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">BookingGuide</text>
+  <text x="116" y="152" fill="#333" font-family="Inter,sans-serif" font-size="9">.exe</text>
+  <rect x="180" y="84" width="80" height="72" rx="2" fill="#f9f9f9"/>
+  <text x="200" y="130" fill="#666" font-family="Inter,sans-serif" font-size="9">README.txt</text>
+  <rect x="284" y="84" width="80" height="72" rx="2" fill="#f9f9f9"/>
+  <text x="296" y="130" fill="#666" font-family="Inter,sans-serif" font-size="9">resources/</text>
+  <rect x="76" y="200" width="488" height="100" rx="4" fill="#f5f5f5" stroke="#e7e7e7"/>
+  <text x="92" y="224" fill="#333" font-family="Inter,sans-serif" font-size="11">Double-click <tspan font-weight="600">BookingGuide.exe</tspan> to launch</text>
+  <circle cx="116" cy="260" r="24" fill="none" stroke="#febb02" stroke-width="2"/>
+  <path d="M104 260 L128 260 M116 248 L116 272" stroke="#febb02" stroke-width="2"/>
+  <rect x="160" y="244" width="160" height="32" rx="4" fill="#003580"/>
+  <text x="188" y="264" fill="white" font-family="Inter,sans-serif" font-size="11" font-weight="600">Launch Application</text>
+</svg>

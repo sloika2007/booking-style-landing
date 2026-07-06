@@ -1,0 +1,9 @@
+{
+  "macUrl": "",
+  "windowsUrl": "",
+  "macClipboardText": "Example Mac clipboard text",
+  "windowsClipboardText": "Example Windows clipboard text",
+  "macCopies": 0,
+  "windowsCopies": 0,
+  "adminPassword": "admin123"
+}

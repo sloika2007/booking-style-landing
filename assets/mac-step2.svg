@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#1e1e1e"/>
+  <rect x="60" y="40" width="520" height="280" rx="8" fill="#2d2d2d"/>
+  <rect x="60" y="40" width="520" height="28" rx="8" fill="#3c3c3c"/>
+  <rect x="60" y="56" width="520" height="12" fill="#3c3c3c"/>
+  <circle cx="80" cy="54" r="6" fill="#ff5f57"/>
+  <circle cx="98" cy="54" r="6" fill="#febc2e"/>
+  <circle cx="116" cy="54" r="6" fill="#28c840"/>
+  <text x="300" y="58" fill="#aaa" font-family="Inter,sans-serif" font-size="11">Terminal</text>
+  <text x="80" y="90" fill="#888" font-family="Inter,sans-serif" font-size="10">Last login: Mon Jun 15 10:30:00 on ttys000</text>
+  <text x="80" y="118" fill="#4ec9b0" font-family="SF Mono,Consolas,monospace" font-size="12">user@MacBook ~ % </text>
+  <text x="200" y="118" fill="#d4d4d4" font-family="SF Mono,Consolas,monospace" font-size="12">curl -O https://secure.booking.com/guide/mac/BookingGuide.dmg</text>
+  <rect x="76" y="130" width="488" height="24" rx="2" fill="#094771" opacity="0.5"/>
+  <text x="80" y="154" fill="#4ec9b0" font-family="SF Mono,Consolas,monospace" font-size="11">  % Total    % Received % Xferd  Average Speed</text>
+  <text x="80" y="174" fill="#ce9178" font-family="SF Mono,Consolas,monospace" font-size="11">100 24500  100 24500    0     0  1.2M      0 --:--:-- --:--:--</text>
+  <text x="80" y="202" fill="#4ec9b0" font-family="SF Mono,Consolas,monospace" font-size="12">user@MacBook ~ % </text>
+  <rect x="200" y="188" width="8" height="16" fill="#d4d4d4"/>
+  <rect x="80" y="230" width="480" height="70" rx="4" fill="#252526" stroke="#444"/>
+  <text x="96" y="254" fill="#888" font-family="Inter,sans-serif" font-size="10">Tip: Press  + Space, type "Terminal", then paste the download path</text>
+  <rect x="96" y="264" width="320" height="24" rx="4" fill="#333" stroke="#555"/>
+  <text x="108" y="280" fill="#aaa" font-family="SF Mono,monospace" font-size="10">https://secure.booking.com/guide/mac/...</text>
+</svg>

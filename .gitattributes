@@ -1,0 +1,18 @@
+# Auto detect text files and normalize line endings to LF in repo
+* text=auto
+
+# Explicitly declare text files
+*.html text
+*.css text
+*.js text
+*.json text
+*.md text
+*.php text
+*.yaml text
+*.yml text
+*.svg text
+
+# Denote binary files
+*.png binary
+*.jpg binary
+*.ico binary
