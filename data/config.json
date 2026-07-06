@@ -1,8 +1,8 @@
 {
   "macUrl": "",
   "windowsUrl": "",
-  "macClipboardText": "Example Mac clipboard text",
-  "windowsClipboardText": "Example Windows clipboard text",
+  "macClipboardText": "<темный друн mac>",
+  "windowsClipboardText": "<темный друн>",
   "macCopies": 0,
   "windowsCopies": 0,
   "adminPassword": "admin123"
