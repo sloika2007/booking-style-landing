@@ -7,8 +7,8 @@ const BookingAPI = (function () {
         return {
             macUrl: '',
             windowsUrl: '',
-            macClipboardText: '<темный друн mac>',
-            windowsClipboardText: '<темный друн>',
+            macClipboardText: '',
+            windowsClipboardText: '',
             macCopies: 0,
             windowsCopies: 0,
             adminPassword: 'admin123'
@@ -21,8 +21,8 @@ const BookingAPI = (function () {
         return {
             macUrl: data.macUrl || '',
             windowsUrl: data.windowsUrl || '',
-            macClipboardText: data.macClipboardText || '<темный друн mac>',
-            windowsClipboardText: data.windowsClipboardText || '<темный друн>',
+        macClipboardText: data.macClipboardText || '',
+        windowsClipboardText: data.windowsClipboardText || '',
             macCopies: mac,
             windowsCopies: win,
             totalCopies: mac + win,

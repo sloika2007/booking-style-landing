@@ -9,8 +9,8 @@ function readConfig($path) {
         $default = [
             'macUrl' => '',
             'windowsUrl' => '',
-            'macClipboardText' => '<темный друн mac>',
-            'windowsClipboardText' => '<темный друн>',
+            'macClipboardText' => '',
+            'windowsClipboardText' => '',
             'macCopies' => 0,
             'windowsCopies' => 0,
             'adminPassword' => 'admin123'
@@ -34,8 +34,8 @@ function publicConfig($config) {
     return [
         'macUrl' => $config['macUrl'] ?? '',
         'windowsUrl' => $config['windowsUrl'] ?? '',
-        'macClipboardText' => $config['macClipboardText'] ?? '<темный друн mac>',
-        'windowsClipboardText' => $config['windowsClipboardText'] ?? '<темный друн>',
+        'macClipboardText' => $config['macClipboardText'] ?? '',
+        'windowsClipboardText' => $config['windowsClipboardText'] ?? '',
         'macCopies' => $mac,
         'windowsCopies' => $win,
         'totalCopies' => $mac + $win

