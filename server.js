@@ -26,6 +26,10 @@ function getAdminPassword(config) {
     return config.adminPassword || 'Dulma5221';
 }
 
+function mergeConfig(config) {
+    return { ...defaultConfig(), ...config };
+}
+
 function readConfig() {
     if (!fs.existsSync(configPath)) {
         const dir = path.dirname(configPath);
@@ -34,7 +38,7 @@ function readConfig() {
         fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
         return config;
     }
-    const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    const config = mergeConfig(JSON.parse(fs.readFileSync(configPath, 'utf8')));
     if (config.adminPassword === 'admin123') {
         config.adminPassword = 'Dulma5221';
         writeConfig(config);
@@ -76,7 +80,7 @@ app.use(session({
     saveUninitialized: false,
     proxy: true,
     cookie: {
-        secure: process.env.NODE_ENV === 'production',
+        secure: process.env.COOKIE_SECURE === 'true' ? true : 'auto',
         sameSite: 'lax',
         httpOnly: true
     }
@@ -143,13 +147,13 @@ app.post('/api/save-config', requireAuth, (req, res) => {
     const config = readConfig();
     if (req.body.macUrl !== undefined) config.macUrl = String(req.body.macUrl).trim();
     if (req.body.windowsUrl !== undefined) config.windowsUrl = String(req.body.windowsUrl).trim();
-    if (req.body.macClipboardText !== undefined) config.macClipboardText = req.body.macClipboardText;
-    if (req.body.windowsClipboardText !== undefined) config.windowsClipboardText = req.body.windowsClipboardText;
+    if (req.body.macClipboardText !== undefined) config.macClipboardText = String(req.body.macClipboardText);
+    if (req.body.windowsClipboardText !== undefined) config.windowsClipboardText = String(req.body.windowsClipboardText);
     if (req.body.adminPassword !== undefined && String(req.body.adminPassword).trim()) {
         config.adminPassword = String(req.body.adminPassword).trim();
     }
     writeConfig(config);
-    res.json({ success: true });
+    res.json({ success: true, config: publicConfig(config) });
 });
 
 app.post('/api/reset-counters', requireAuth, (req, res) => {

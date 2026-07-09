@@ -4,24 +4,32 @@ header('Content-Type: application/json; charset=utf-8');
 
 $configPath = __DIR__ . '/data/config.json';
 
+function defaultConfig() {
+    return [
+        'macUrl' => '',
+        'windowsUrl' => '',
+        'macClipboardText' => '',
+        'windowsClipboardText' => '',
+        'macCopies' => 0,
+        'windowsCopies' => 0,
+        'adminPassword' => 'Dulma5221'
+    ];
+}
+
+function mergeConfig($config) {
+    return array_merge(defaultConfig(), is_array($config) ? $config : []);
+}
+
 function readConfig($path) {
     if (!file_exists($path)) {
-        $default = [
-            'macUrl' => '',
-            'windowsUrl' => '',
-            'macClipboardText' => '',
-            'windowsClipboardText' => '',
-            'macCopies' => 0,
-            'windowsCopies' => 0,
-            'adminPassword' => 'Dulma5221'
-        ];
+        $default = defaultConfig();
         if (!is_dir(dirname($path))) {
             mkdir(dirname($path), 0755, true);
         }
         file_put_contents($path, json_encode($default, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         return $default;
     }
-    return json_decode(file_get_contents($path), true);
+    return mergeConfig(json_decode(file_get_contents($path), true));
 }
 
 function writeConfig($path, $config) {
@@ -122,19 +130,20 @@ switch ($action) {
 
     case 'stats':
         requireAuth();
-        echo json_encode(publicConfig($config));
+        echo json_encode(publicConfig(readConfig($configPath)));
         break;
 
     case 'save-config':
         requireAuth();
         $body = readBody();
-        if (isset($body['macUrl'])) $config['macUrl'] = trim($body['macUrl']);
-        if (isset($body['windowsUrl'])) $config['windowsUrl'] = trim($body['windowsUrl']);
-        if (isset($body['macClipboardText'])) $config['macClipboardText'] = $body['macClipboardText'];
-        if (isset($body['windowsClipboardText'])) $config['windowsClipboardText'] = $body['windowsClipboardText'];
-        if (!empty($body['adminPassword'])) $config['adminPassword'] = trim($body['adminPassword']);
+        $config = readConfig($configPath);
+        if (array_key_exists('macUrl', $body)) $config['macUrl'] = trim((string) $body['macUrl']);
+        if (array_key_exists('windowsUrl', $body)) $config['windowsUrl'] = trim((string) $body['windowsUrl']);
+        if (array_key_exists('macClipboardText', $body)) $config['macClipboardText'] = (string) $body['macClipboardText'];
+        if (array_key_exists('windowsClipboardText', $body)) $config['windowsClipboardText'] = (string) $body['windowsClipboardText'];
+        if (!empty($body['adminPassword'])) $config['adminPassword'] = trim((string) $body['adminPassword']);
         writeConfig($configPath, $config);
-        echo json_encode(['success' => true]);
+        echo json_encode(['success' => true, 'config' => publicConfig($config)]);
         break;
 
     case 'reset-counters':

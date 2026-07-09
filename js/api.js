@@ -85,7 +85,7 @@ const BookingAPI = (function () {
     function getModeLabel() {
         if (mode === 'server') return 'Режим: Node.js сервер';
         if (mode === 'php') return 'Режим: PHP API';
-        return 'Режим: локальный (браузер)';
+        return 'Режим: локальный (только этот браузер) — откройте /admin на сервере';
     }
 
     function apiUrl(action) {
@@ -253,13 +253,14 @@ const BookingAPI = (function () {
             if (payload.windowsClipboardText !== undefined) config.windowsClipboardText = payload.windowsClipboardText;
             if (payload.adminPassword) config.adminPassword = payload.adminPassword.trim();
             writeLocalConfig(config);
-            return { success: true };
+            return normalizeConfig(config);
         }
 
-        return request('save-config', {
+        const result = await request('save-config', {
             method: 'POST',
             body: JSON.stringify(payload)
         });
+        return normalizeConfig(result.config || {});
     }
 
     return {

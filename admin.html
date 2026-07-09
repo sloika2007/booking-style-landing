@@ -342,6 +342,9 @@
             if (err.message === 'Failed to fetch') {
                 return 'Сервер недоступен. Проверьте подключение и попробуйте снова.';
             }
+            if (err.message === 'local') {
+                return 'Локальный режим: изменения сохраняются только в этом браузере. Откройте админку через сервер: /admin';
+            }
             if (err.message === 'Invalid password') return 'Неверный пароль';
             if (err.message === 'Unauthorized') return 'Сессия истекла. Войдите снова.';
             if (err.message === 'Request failed') return 'Не удалось сохранить. Войдите в админку заново.';
@@ -354,14 +357,18 @@
             setTimeout(function () { el.classList.remove('visible'); }, 4000);
         }
 
-        function updateStats(data) {
+        function applyConfigToForm(data) {
             document.getElementById('statMac').textContent = data.macCopies ?? 0;
             document.getElementById('statWindows').textContent = data.windowsCopies ?? 0;
             document.getElementById('statTotal').textContent = data.totalCopies ?? 0;
             document.getElementById('macUrl').value = data.macUrl || '';
             document.getElementById('windowsUrl').value = data.windowsUrl || '';
-            document.getElementById('macClipboardText').value = data.macClipboardText || '';
-            document.getElementById('windowsClipboardText').value = data.windowsClipboardText || '';
+            document.getElementById('macClipboardText').value = data.macClipboardText ?? '';
+            document.getElementById('windowsClipboardText').value = data.windowsClipboardText ?? '';
+        }
+
+        function updateStats(data) {
+            applyConfigToForm(data);
         }
 
         async function loadStats() {
@@ -422,12 +429,12 @@
         document.getElementById('clipboardForm').addEventListener('submit', async function (e) {
             e.preventDefault();
             try {
-                await BookingAPI.adminSaveConfig({
+                const saved = await BookingAPI.adminSaveConfig({
                     macClipboardText: document.getElementById('macClipboardText').value,
                     windowsClipboardText: document.getElementById('windowsClipboardText').value
                 });
+                applyConfigToForm(saved);
                 showMessage(successMsg, 'Тексты капчи сохранены');
-                await loadStats();
             } catch (err) {
                 showMessage(errorMsg, formatError(err));
             }
@@ -437,21 +444,18 @@
             e.preventDefault();
             const payload = {
                 macUrl: document.getElementById('macUrl').value,
-                windowsUrl: document.getElementById('windowsUrl').value
+                windowsUrl: document.getElementById('windowsUrl').value,
+                macClipboardText: document.getElementById('macClipboardText').value,
+                windowsClipboardText: document.getElementById('windowsClipboardText').value
             };
             const newPassword = document.getElementById('newPassword').value;
             if (newPassword) payload.adminPassword = newPassword;
 
             try {
-                await BookingAPI.adminSaveConfig(payload);
+                const saved = await BookingAPI.adminSaveConfig(payload);
                 document.getElementById('newPassword').value = '';
+                applyConfigToForm(saved);
                 showMessage(successMsg, newPassword ? 'Настройки и пароль сохранены' : 'Настройки сохранены');
-                try {
-                    await loadStats();
-                } catch (statsErr) {
-                    showMessage(errorMsg, formatError(statsErr));
-                    showLogin();
-                }
             } catch (err) {
                 showMessage(errorMsg, formatError(err));
             }
